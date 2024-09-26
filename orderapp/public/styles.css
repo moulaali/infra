@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.container {
+  display: flex;
+}
+
+.side-panel {
+  width: 200px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  height: 100vh;
+}
+
+.side-panel h2 {
+  font-size: 1.5rem;
+}
+
+.side-panel ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-panel ul li {
+  margin: 10px 0;
+}
+
+.side-panel ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.side-panel ul li a:hover {
+  color: #007BFF;
+}
+
+.content {
+  padding: 20px;
+  width: 100%;
+}
+
+.content h1 {
+  font-size: 2rem;
+}
