@@ -10,12 +10,15 @@ const port = 3000;
 
 // Middleware to parse JSON request bodies
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));  // To parse URL-encoded form data
+app.use(express.json());  // To parse JSON body
 
 // Create a new order (Create)
 app.post('/create-order', async (req, res) => {
   try {
-    const { customer_name, product, quantity } = req.body;
-    const orderId = await orderService.createOrder(customer_name, product, quantity);
+    console.log("POST:create-order : ", req.body)
+    const { customer_name, product, quantity, price } = req.body;
+    const orderId = await orderService.createOrder(customer_name, product, quantity, price);
     res.redirect('/orders');  // Redirect to orders page after successful creation
   } catch (error) {
     res.status(500).send('Failed to create order');
@@ -51,7 +54,26 @@ app.post('/delete-order', async (req, res) => {
 });
 
 app.get('/index', (req, res) => {
-  res.render('index');
+  res.redirect('orders');
+});
+
+app.get('/', (req, res) => {
+  res.redirect('orders');
+});
+
+app.get('/create-order', (req, res) => {
+  res.render('createOrder');
+});
+
+app.get('/orders', async (req, res) => {
+    try {
+
+        const result = await orderService.getAllOrders();
+        const orders = Array.isArray(result) ? result : [result];
+        res.render('orders', { orders: orders})
+      } catch (error) {
+        res.status(500).send('Unable to fetch orders : ' + error);
+      }
 });
 
 
