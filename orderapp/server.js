@@ -8,6 +8,13 @@ const app = express();
 app.set('view engine', 'ejs');
 const port = 3000;
 
+// Override console.log
+const fs = require('fs');
+const logStream = fs.createWriteStream('app.log', { flags: 'a' });
+console.log = function (message) {
+  logStream.write(new Date().toISOString() + ' - ' + message + '\n');
+};
+
 // Middleware to parse JSON request bodies
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));  // To parse URL-encoded form data
@@ -54,11 +61,11 @@ app.post('/delete-order', async (req, res) => {
 });
 
 app.get('/index', (req, res) => {
-  res.redirect('orders');
+  res.render('index');
 });
 
 app.get('/', (req, res) => {
-  res.redirect('orders');
+  res.render('index');
 });
 
 app.get('/create-order', (req, res) => {
@@ -77,7 +84,5 @@ app.get('/orders', async (req, res) => {
 });
 
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Order Server is running on port ${port}`);
-});
+// Start the server. bind up to ips
+app.listen(port, '0.0.0.0')

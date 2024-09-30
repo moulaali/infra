@@ -3,10 +3,10 @@ const mysql = require('mysql2');
 
 // Create a MySQL connection pool
 const pool = mysql.createPool({
-  host: 'localhost', // Replace with your DB host
+  host: 'mysql-container', // Replace with your DB host
   user: 'root',      // Replace with your DB user
   password: 'mysql', // Replace with your DB password
-  database: 'order_db', // Replace with your DB name
+  database: 'ordersdb', // Replace with your DB name
 });
 
 // CRUD methods
