@@ -1,0 +1,15 @@
+# service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: akash-portal-service
+  labels:
+    app: akash-portal
+spec:
+  type: LoadBalancer
+  selector:
+    app: akash-portal
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000

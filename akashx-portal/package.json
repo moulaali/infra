@@ -1,0 +1,13 @@
+{
+  "name": "akashx-portal-app",
+  "version": "1.0.0",
+  "description": "A simple Node.js app with a beautiful UI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.17.1"
+  }
+}

@@ -1,0 +1,80 @@
+/* Import a beautiful Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Updated font */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  height: 80vh;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius: 20px; /* More rounded for the overall container */
+}
+
+.left-panel {
+  width: 20%;
+  background-color: #003366; /* Dark blue color */
+  color: white;
+  padding: 20px;
+  border-top-left-radius: 20px; /* More rounded on the top left corner */
+  border-bottom-left-radius: 20px; /* More rounded on the bottom left corner */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space items and copyright at bottom */
+}
+
+.left-panel h2 {
+  font-size: 32px; /* Larger font size */
+  margin-bottom: 40px; /* More space below the title */
+  font-weight: 700; /* Bold weight for more impact */
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 1.5px; /* Slight spacing between letters */
+}
+
+.left-panel ul {
+  list-style-type: none;
+}
+
+.left-panel ul li {
+  margin-bottom: 25px; /* Increased space between items */
+  display: flex;
+  align-items: center;
+}
+
+.left-panel ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  margin-left: 10px; /* Space between icon and text */
+  font-weight: 400;
+}
+
+.left-panel ul li a:hover {
+  text-decoration: underline;
+}
+
+.left-panel ul li i {
+  font-size: 18px; /* Adjust size of icons */
+}
+
+.copyright {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 40px;
+  color: #ffffff;
+}
